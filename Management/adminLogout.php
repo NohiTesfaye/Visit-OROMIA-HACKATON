@@ -39,7 +39,7 @@
         <style>
         body
       {
-        background-image: url('home1.jpg');
+        background-color:url('images.jpg');
         background-repeat:no-repeat;
       }
       h1{

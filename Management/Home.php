@@ -23,29 +23,61 @@ if(!isset($_SESSION['username'])){
     <script src="js/bootstrap.min.js"></script>
     <style>
      body {
-        background-image: url('home1.jpg');
+        background-image: url('images.jpg');
         background-repeat:no-repeat;
       }
-      h3{
-        text:white:
-      }
+      
      h1{
         font-size: 60px;
         font-family: Courgette;
-        text:black
+      
       }
+      .options {
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 20px; /* Padding inside the container */
+    width: 400px; /* Increased width */
+    min-height: 300px; /* Minimum height */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Center the text */
+}
+
+.options h3 {
+    margin: 15px 0; /* Space between each option */
+    font-family: 'Arial', sans-serif; /* Font family */
+}
+
+.options a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Link color */
+    font-weight: bold; /* Bold text for links */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.options a:hover {
+    color: #0056b3; /* Darker link color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.btn-danger {
+    background-color: red; /* Bootstrap danger button color */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker shade on hover */
+}
+h5{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 400;
+}
   
-      .options{
-        background-color:#fffae6;
-        opacity: 0.7;
-        margin: 5%;
-        font-weight: bold;
-        border: 5px solid white;
-      }
-      a:hover {
-        color: #003366;
-        text-decoration: none;
-      }
+      
 
     </style>
     <title>Admin Panel | Home</title>
@@ -53,7 +85,7 @@ if(!isset($_SESSION['username'])){
   <body >
             <center>
             <h1>
-              Tourism Management System</h1
+              VISIT OROMIA </h1
             >
           <h1>Admin Panel</h1>
           </center>
@@ -66,7 +98,7 @@ if(!isset($_SESSION['username'])){
               <h3><a href="flightbookings_view.php">FLIGHT BOOKINGS</a></h3>
               <h3><a href="trains_add.php">ADD TRAINS</a></h3>
               <h3><a href="trainbookings_view.php">TRAIN BOOKINGS</a></h3>
-              <h3><a href="adminLogout.php">LOGOUT</a></h3>
+              <h3><a href="adminLogout.php" class="btn btn-danger">LOG OUT</a></h3>
     </center>
     </div>
     <center>

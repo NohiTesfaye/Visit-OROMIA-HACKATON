@@ -13,21 +13,22 @@
     <style>
      body
       {
-        background-image: url('home1.jpg');
+        background-color:url('images.jpg');
         background-repeat:no-repeat;
       }
       
 
-
-#div_login{
+    #div_login {
     border: 1px solid gray;
-    border-radius: 3px;
+    border-radius: 10px;/* Increased border radius for a  softer look */
     width: 500px;
     height: 390px;
-    box-shadow: 0px 2px 2px 0px  gray;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Softer shadow for depth */
     margin: 0 auto;
-     background-color:black;
-        opacity: 0.7;
+    background: linear-gradient(135deg, rgba(175, 175, 181, 0.8), rgba(50, 50, 50, 0.8)); /* Gradient background */
+    opacity: 0.9; /* Slightly increased opacity */
+    padding: 20px; /* Added padding for better spacing */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
 }
 
 #div_login h1{
@@ -80,7 +81,7 @@
             </div>
             <br>
             <div>
-               <h3><input class="btn-success" type="submit" value="Login" name="but_submit" id="but_submit" /></h3>
+               <h3><input class="btn btn-primary" type="submit" value="Login" name="but_submit" id="but_submit" /></h3>
             </div>
         </div>
     </form>
