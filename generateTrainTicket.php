@@ -22,7 +22,7 @@ ob_start();
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-		<title>E-Ticket | tourism_management</title>
+		<title>E-Ticket | VISIT OROMIA</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@ ob_start();
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
-			$dbname = "projectmeteor";
+			$dbname = "projectmeteor1";
 			
 			// Creating a connection to MySQL database
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -158,7 +158,7 @@ ob_start();
 			
 					<div class="subHeading">
 						
-						Train Details
+						Bus Details
 						
 					</div>
 				
@@ -182,7 +182,7 @@ ob_start();
 					
 						<div class="arrivesHeading">
 						
-							Train no.
+							Bus no.
 							
 						</div>
 						
@@ -204,7 +204,7 @@ ob_start();
 					
 						<div class="flightOperatorHeading">
 						
-							Train name
+							Bus name
 							
 						</div>
 						
@@ -620,8 +620,7 @@ ob_start();
 					
 					<div class="info">
 						
-						<span class="strong">3.</span> It is mandatory to carry Government recognised photo identification (ID) along with your E-Ticket. This can include: Driving License, Passport, PAN Card, Voter ID Card or any other ID issued by the Government of India. For infant passengers, it is mandatory to carry the Date of Birth certificate.
-						
+						<span class="strong">3.</span> It is mandatory to carry Government recognised photo identification (ID) along with your E-Ticket. This can include: Driving License, Passport, PAN Card, Voter ID Card or any other ID issued by the Government of Ethiopia.
 					</div>
 					
 				</div>

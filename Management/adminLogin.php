@@ -4,90 +4,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      href="https://fonts.googleapis.com/css?family=Courgette"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="js/bootstrap.min.js"></script>
+    <title>VISIT OROMIA | Admin Panel</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
-     body
-      {
-        background-color:url('images.jpg');
-        background-repeat:no-repeat;
-      }
-      
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
 
-    #div_login {
-    border: 1px solid gray;
-    border-radius: 10px;/* Increased border radius for a  softer look */
-    width: 500px;
-    height: 390px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Softer shadow for depth */
-    margin: 0 auto;
-    background: linear-gradient(135deg, rgba(175, 175, 181, 0.8), rgba(50, 50, 50, 0.8)); /* Gradient background */
-    opacity: 0.9; /* Slightly increased opacity */
-    padding: 20px; /* Added padding for better spacing */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
-}
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-#div_login h1{
-    margin-top: 0px;
-    font-weight: normal;
-    padding: 10px;
-    background-color: cornflowerblue;
-    color: white;
-    font-family: sans-serif;
-}
+        .login-container h1 {
+            font-family: 'Courgette', cursive;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-#div_login div{
-    clear: both;
-    margin-top: 10px;
-    padding: 5px;
-}
+        .login-container h3 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 10px;
+            text-align: left;
+        }
 
-#div_login .textbox{
-    width: 96%;
-    padding: 7px;
-}
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
 
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+
+        .login-container .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-container .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-container .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
-
-    <title>Login | Admin Panel</title>
-    
 </head>
-
-<body> 
-<center> 
-
-<h1 class="text-center" style="font-size: 60px;
-        font-family: Courgette;
-        text:black">Admin Panel</h1>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-    <form method="post" action="">
-        <div class="align-center" id="div_login">
-            <h1 class="text-center">Login</h1>
+<body>
+    <div class="login-container">
+        <h1>Admin Panel</h1>
+        <form method="post" action="">
             <div>
-                <h3 class="text-white">Username:</h3>
-                <input type="text" class="textbox " id="txt_uname" name="username" placeholder="Enter Username" />
+                <h3>Username:</h3>
+                <input type="text" id="txt_uname" name="username" placeholder="Enter Username" required>
             </div>
             <div>
-            <h3 class="text-white">Password:</h3>
-                <input type="password" class="textbox" id="txt_uname" name="password" placeholder="Enter Password"/>
+                <h3>Password:</h3>
+                <input type="password" id="txt_pwd" name="password" placeholder="Enter Password" required>
             </div>
-            <br>
             <div>
-               <h3><input class="btn btn-primary" type="submit" value="Login" name="but_submit" id="but_submit" /></h3>
+                <button type="submit" class="btn btn-primary" name="but_submit">Login</button>
             </div>
-        </div>
-    </form>
-</div>
-</center>
+        </form>
+    </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 <?php
 session_start();
 

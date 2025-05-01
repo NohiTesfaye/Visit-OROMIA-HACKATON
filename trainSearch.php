@@ -16,7 +16,7 @@ if(!isset($_SESSION["username"]))
 	
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Train Search | tourism_management</title>
+		<title>Bus Search | VISIT OROMIA</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@ if(!isset($_SESSION["username"]))
 					
 			<div class="query">
 						
-				Trains from <?php echo $origin; ?> to <?php echo $destination; ?>		
+				BUS from <?php echo $origin; ?> to <?php echo $destination; ?>		
 						
 			</div>
 			
@@ -68,7 +68,7 @@ if(!isset($_SESSION["username"]))
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
-			$dbname = "projectmeteor";
+			$dbname = "projectmeteor1";
 			
 			// Creating a connection to MySQL database
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -96,7 +96,7 @@ if(!isset($_SESSION["username"]))
 	
 					<div class="headings">
 		
-						Train No.
+						BUS No.
 			
 					</div>
 		
@@ -106,7 +106,7 @@ if(!isset($_SESSION["username"]))
 	
 					<div class="headings">
 		
-						Train Name
+						BUS Name
 			
 					</div>
 		
@@ -192,7 +192,7 @@ if(!isset($_SESSION["username"]))
 		
 					<div class="departsSubscript">
 		
-						<?php echo $class." tickets starting at "; ?><span style="font-family: sans-serif;">₹</span><?php echo $row[$priceClass]."/person"; ?>
+						<?php echo $class." tickets starting at "; ?><span style="font-family: sans-serif;">BIRR</span><?php echo $row[$priceClass]."/person"; ?>
 			
 					</div>
 		
@@ -328,7 +328,7 @@ if(!isset($_SESSION["username"]))
 		
 			<div class="noFlights">
 			
-				No trains found. 
+				No BUS found. 
 			
 			</div>
 		

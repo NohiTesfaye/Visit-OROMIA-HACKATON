@@ -17,7 +17,7 @@ if(!isset($_SESSION["username"]))
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-		<title>Flights | tourism_management</title>
+		<title>Flights |VISIT Oromia</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -91,7 +91,7 @@ if(!isset($_SESSION["username"]))
 							<ul>
 								<a href="hotels.php"><li>Hotels</li></a>
 								<li class="selected">Flights</li>
-								<a href="trains.php"><li>Trains</li></a>
+								<a href="trains.php"><li>Bus</li></a>
 							</ul>
 							
 						</div>
@@ -145,17 +145,7 @@ if(!isset($_SESSION["username"]))
    								 <label for="origin">Origin:<p> </p></label>
      
       								<select id= "origin"  data-live-search="true" class="selectpicker form-control" data-size="5" title="Select Origin" name="origin" required>
-       									<option value="New Delhi" data-subtext="DEL" data-tokens="DEL New Delhi">New Delhi</option>
-        								<option value="Mumbai" data-subtext="BOM" data-tokens="BOM Mumbai">Mumbai</option>
-        								<option value="Kolkata" data-subtext="CCU" data-tokens="CCU Kolkata">Kolkata</option>
-        								<option value="Bengaluru" data-subtext="BLR" data-tokens="BLR Bengaluru">Bengaluru</option>
-        								<option value="Pune" data-subtext="PNQ" data-tokens="PNQ Pune">Pune</option>
-        								<option value="Chennai" data-subtext="MAA" data-tokens="MAA Chennai">Chennai</option>
-        								<option value="Guwahati" data-subtext="GAU" data-tokens="GAU Guwahati">Guwahati</option>
-        								<option value="Bhopal" data-subtext="BHO" data-tokens="BHI Bhopal">Bhopal</option>
-        								<option value="Jaipur" data-subtext="JAI" data-tokens="JAI Jaipur">Jaipur</option>
-        								<option value="Ahmedabad" data-subtext="AMD" data-tokens="AMD Ahmedabad">Ahmedabad</option>
-        								<option value="Hyderabad" data-subtext="HYD" data-tokens="HYD Hyderabad">Hyderabad</option>
+       									<option value="Addis Ababa" data-subtext="Addis Ababa" data-tokens="Addis Ababa"> Addis Ababa</option>
       								</select>
 							</div>
             			</div>
@@ -165,17 +155,13 @@ if(!isset($_SESSION["username"]))
    								 <label for="destination">Destination:<p> </p></label>
      
       								<select id= "destination"  data-live-search="true" class="selectpicker form-control" data-size="5" title="Select Destination" name="destination" required>
-       									<option value="New Delhi" data-subtext="DEL" data-tokens="DEL New Delhi">New Delhi</option>
-        								<option value="Mumbai" data-subtext="BOM" data-tokens="BOM Mumbai">Mumbai</option>
-        								<option value="Kolkata" data-subtext="CCU" data-tokens="CCU Kolkata">Kolkata</option>
-        								<option value="Bengaluru" data-subtext="BLR" data-tokens="BLR Bengaluru">Bengaluru</option>
-        								<option value="Pune" data-subtext="PNQ" data-tokens="PNQ Pune">Pune</option>
-        								<option value="Chennai" data-subtext="MAA" data-tokens="MAA Chennai">Chennai</option>
-        								<option value="Guwahati" data-subtext="GAU" data-tokens="GAU Guwahati">Guwahati</option>
-        								<option value="Bhopal" data-subtext="BHO" data-tokens="BHI Bhopal">Bhopal</option>
-        								<option value="Jaipur" data-subtext="JAI" data-tokens="JAI Jaipur">Jaipur</option>
-        								<option value="Ahmedabad" data-subtext="AMD" data-tokens="AMD Ahmedabad">Ahmedabad</option>
-        								<option value="Hyderabad" data-subtext="HYD" data-tokens="HYD Hyderabad">Hyderabad</option>
+       									<option value="Naqamtee" data-subtext="Naqamtee" data-tokens="Naqamtee">Naqamtee</option>										   </option>
+        								<option value="jimma" data-subtext="jimma" data-tokens="jimma">jimma</option>
+        								<option value="Baalee" data-subtext="Baalee" data-tokens="Baalee">Baalee</option>
+        								<option value="Mattuu" data-subtext="Mattuu" data-tokens="Mattuu">Mattuu</option>
+        								<option value="Dambi Doollo" data-subtext="Dambi Doollo" data-tokens="Dambi Doollo">Dambi Doollo</option>
+        								<option value="Dirre Dawaa" data-subtext="Dirre Dawaa" data-tokens="Dirre Dawaa">Dirre Dawaa</option>
+        								
       								</select>
 							</div>
             			</div>
@@ -256,73 +242,86 @@ if(!isset($_SESSION["username"]))
 			
 			
 			
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Footer</title>
+</head>
+<body>
+	
+
+
+
+<!-- Footer -->
+
+<footer class="footer-section" style="background-color: #2c3e50; color: white; padding: 40px 0;">
+  <div class="container">
+    <div class="row">
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4">
+        <h5 style="font-weight: bold; color: #ecf0f1;">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" style="color: #ecf0f1; text-decoration: none;">Home</a></li>
+          <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Destination</a></li>
+          <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Things to Do</a></li>
+          <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Booking Service</a></li>
+          <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Unique</a></li>
+          <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Map</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="col-md-4 mb-4">
+        <h5 style="font-weight: bold; color: #ecf0f1;">About Us</h5>
+        <p>
+          Visit Oromia is your gateway to exploring the stunning landscapes, rich culture, and exciting adventures in Oromia, Ethiopia. Discover the beauty of nature, immerse yourself in local traditions, and create unforgettable memories.
+        </p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4 mb-4">
+        <h5 style="font-weight: bold; color: #ecf0f1;">Follow Us</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#" class="text-decoration-none" style="color: #ecf0f1;">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none" style="color: #ecf0f1;">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none" style="color: #ecf0f1;">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none" style="color: #ecf0f1;">
+              <i class="fab fa-youtube"></i> YouTube
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-4">
+      <p class="mb-0" style="color: #bdc3c7;">
+        &copy; 2025 Visit Oromia. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 			
-			
-			<!-- FOOTER SECTION STARTS -->
-					
-				<div class="footer col-sm-12">
-					
-					<div class="col-sm-4">
-						
-						<div class="footerHeading">
-							Contact Us
-						</div>
-							
-						<div class="footerText">
-							CUSAT,Cochin <br> Kerala, India
-						</div>
-				
-						<div class="footerText">
-							E-mail: queries@tourism_management.com
-						</div>
-						
-					</div>
-					
-					<div class="col-sm-4">
-						
-					</div>
-					
-					<div class="col-sm-4">
-					
-						<div class="footerHeading">
-							Social Links
-						</div>
-						
-						<div class="socialLinks">
-						
-							<div class="fb">
-								facebook.com/tourism_management
-							</div>
-						
-							<div class="gp">
-								plus.google.com/tourism_management
-							</div>
-						
-							<div class="tw">
-								twitter.com/tourism_management
-							</div>
-						
-							<div class="in">
-								linkedin.com/tourism_management
-							</div>
-						
-						</div> <!-- social links -->
-						
-					</div>
-						
-					<div class="col-sm-12">
-					<div class="copyrightContainer">
-						<div class="copyright">
-						Copyright &copy; 2021 Alisha Anand
-						</div>
-					</div>
-					</div>
-							
-				</div> <!-- footer -->
-				
-			<!-- FOOTER SECTION ENDS -->
-			
-			
+
 		
 		</div> <!-- container-fluid -->
 	

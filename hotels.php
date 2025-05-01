@@ -17,7 +17,7 @@ if(!isset($_SESSION["username"]))
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-		<title>Hotels | tourism_management</title>
+		<title>Hotels | VISIT Oromia</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -88,7 +88,7 @@ if(!isset($_SESSION["username"]))
 							<ul>
 								<li class="selected">Hotels</li>
 								<a href="flights.php"><li>Flights</li></a>
-								<a href="trains.php"><li>Trains</li></a>
+								<a href="trains.php"><li>Bus</li></a>
 							</ul>
 							
 						</div>
@@ -118,16 +118,15 @@ if(!isset($_SESSION["username"]))
    								 <label for="city">City:<p> </p></label>
      
       								<select id= "city"  data-live-search="true" class="selectpicker form-control" data-size="5" title="Select City" name="city" required>
-       									<option value="New Delhi" data-tokens="DEL New Delhi">New Delhi</option>
-        								<option value="Mumbai" data-tokens="BOM Mumbai">Mumbai</option>
-        								<option value="Kolkata" data-tokens="CCU Kolkata">Kolkata</option>
-        								<option value="Bangalore" data-tokens="BLR Bangalore">Bangalore</option>
-        								<option value="Chennai" data-tokens="MAA Chennai">Chennai</option>
-        								<option value="Pune" data-tokens="PNQ Pune">Pune</option>
-        								<option value="Kerala" data-tokens="KER Kerala">Kerala</option>
-        								<option value="Guwahati" data-tokens="GAU Guwahati">Guwahati</option>
-        								<option value="Manali" data-tokens="MAN Manali">Manali</option>
-        								<option value="Shillong" data-tokens="SHL Shillong">Shillong</option>
+       									<option value="Addis Ababa" data-tokens="Addis Ababa">Addis Ababa</option>
+        								<option value="BAALEE" data-tokens="BAALEE">BAALEE</option>
+        								<option value="ADAMA" data-tokens="ADAMA">ADAMA</option>
+        								<option value="BAATUU" data-tokens="BAATUU">BAATUU</option>
+        								<option value="CIROO" data-tokens="CIROO">CIROO</option>
+										<option value="NAQAMTEE" data-tokens="NAQAMTEE">NAQAMTEE</option>
+										<option value="DAMBI DOOLLO" data-tokens="DAMBI DOOLLO">DAMBI DOOLLO</option>
+										<option value="Amboo" data-tokens="Amboo">AMBOO</option>
+        								
       								</select>
 							</div>
             			</div>
@@ -255,7 +254,7 @@ if(!isset($_SESSION["username"]))
 					
 						<div class="heading">
 						
-								Popular Cities
+								Popular Cities IN Oromia
 						
 						</div>
 						
@@ -274,19 +273,19 @@ if(!isset($_SESSION["username"]))
 									
 									<div class="headings">
 										
-										New Delhi
+										BAALEE MOUNT LOUNGE
 										
 									</div>
 									
 									<div class="info">
 										
-										3-star hotels averaging ₹ 2000
+										3-star hotels averaging ETB 2000
 										
 									</div>
 									
 									<div class="info">
 										
-										5-star hotels averaging ₹ 6500
+										5-star hotels averaging ETB 6500
 										
 									</div>
 								
@@ -307,19 +306,19 @@ if(!isset($_SESSION["username"]))
 									
 									<div class="headings">
 										
-										Mumbai
+										ADDIS ABABA GRAND HOTEL
 										
 									</div>
 									
 									<div class="info">
 										
-										3-star hotels averaging ₹ 3900
+										3-star hotels averaging ETB 3900
 										
 									</div>
 									
 									<div class="info">
 										
-										5-star hotels averaging ₹ 9700
+										5-star hotels averaging ETB 9700
 										
 									</div>
 								
@@ -340,19 +339,19 @@ if(!isset($_SESSION["username"]))
 									
 									<div class="headings">
 										
-										Kolkata
+										ADAMA HILLSIDE HOTEL
 										
 									</div>
 									
 									<div class="info">
 										
-										3-star hotels averaging ₹ 3000
+										3-star hotels averaging ETB 3000
 										
 									</div>
 									
 									<div class="info">
 										
-										5-star hotels averaging ₹ 7750
+										5-star hotels averaging ETB 7750
 										
 									</div>
 								
@@ -372,76 +371,71 @@ if(!isset($_SESSION["username"]))
 			
 			
 			
-			<!-- FOOTER SECTION STARTS -->
-					
-				<div class="footer col-sm-12">
-					
-					<div class="col-sm-4">
-						
-						<div class="footerHeading">
-							Contact Us
-						</div>
-							
-						<div class="footerText">
-							CUSAT, Cochin,<br> Kerala,India
-						</div>
-				
-						<div class="footerText">
-							E-mail: queries@tourism_management.com
-						</div>
-						
-					</div>
-					
-					<div class="col-sm-4">
-						
-					</div>
-					
-					<div class="col-sm-4">
-					
-						<div class="footerHeading">
-							Social Links
-						</div>
-						
-						<div class="socialLinks">
-						
-							<div class="fb">
-								facebook.com/tourism_management
-							</div>
-						
-							<div class="gp">
-								plus.google.com/tourism_management
-							</div>
-						
-							<div class="tw">
-								twitter.com/tourism_management
-							</div>
-						
-							<div class="in">
-								linkedin.com/tourism_management
-							</div>
-						
-						</div> <!-- social links -->
-						
-					</div>
-						
-					<div class="col-sm-12">
-					<div class="copyrightContainer">
-						<div class="copyright">
-						Copyright &copy; 2021 Alisha Anand
-						</div>
-					</div>
-					</div>
-							
-				</div> <!-- footer -->
-				
-			<!-- FOOTER SECTION ENDS -->
-			
-			
-		
-		</div> <!-- container-fluid -->
-	
-	</body>
-	
-	<!-- BODY TAG ENDS -->
-	
+			           
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row">
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Destination</a></li>
+          <li><a href="#">Things to Do</a></li>
+          <li><a href="#">Booking Service</a></li>
+          <li><a href="#">Unique</a></li>
+          <li><a href="#">Map</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="col-md-4 mb-4">
+        <h5>About Us</h5>
+        <p>
+          Visit Oromia is your gateway to exploring the stunning landscapes, rich culture, and exciting adventures in Oromia, Ethiopia. Discover the beauty of nature, immerse yourself in local traditions, and create unforgettable memories.
+        </p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4 mb-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-youtube"></i> YouTube
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-4">
+      <p class="mb-0">
+        &copy; 2025 Visit Oromia. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    </script>
+</body>
+
 </html>
