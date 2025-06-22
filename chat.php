@@ -70,7 +70,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Visit Oromia</h1>
+        <h1>Welcome to Oromia Land of Diverse Beauty!</h1>
         <p>Explore the beauty and culture of Oromia. Need help? Chat with us!</p>
         <button class="btn btn-chat" onclick="Tawk_API.toggle()">
             <i class="fas fa-comments"></i> Chat Now
