@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Tourism Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+     <link href="style.css" rel="stylesheet">
+     <link href="style2.css" rel="stylesheet"> 
+</head>
+<body>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-globe"></i> VISIT OROMIA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.php">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Bookings
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="hotels.php">Hotels</a></li>
+                            <li><a class="dropdown-item" href="flights.php">Flights</a></li>
+                            <li><a class="dropdown-item" href="trains.php">Trains</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOromia" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explore Oromia
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownOromia">
+                            <li><a class="dropdown-item" href="index.html">Natural Attractions</a></li>
+                            <li><a class="dropdown-item" href="cultural_site.html">Cultural Sites</a></li>
+                            <li><a class="dropdown-item" href="oromia_adventure_tours.php">Adventure Tours</a></li>
+                            <li><a class="dropdown-item" href="culural-food.html">Food & Culture</a></li>
+                            <li><a class="dropdown-item" href="chat.php">Chat with us!S</a></li>
+                            <li><a class="dropdown-item" href="video.html">VIDEO</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../aboutUs.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                   
+                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Destination Section -->
+  <section class="destination-section bg-light"> <!-- Added bg-light class -->
+    <div class="container">
+      <h2 class="text-center mb-4 animate__animated animate__fadeInUp">Cultural Events & History</h2>
+      <div class="row">
+        <!-- Karrayyu Oromo Traditional Meeting -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="karrayyu/images/karrayu-meeting.jpg" 
+              class="card-img-top"
+              alt="Bale Mountain National Park"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Karrayyu Oromo Traditional Meeting</h5>
+              <p class="card-text">
+                A group of Karrayyu Oromo elders discuss . Notice all the thin, long sticks in their hands.</p>
+              <a href="cultural_event/karrayyu.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Borana Oromo Traditional Outfit -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="karrayyu/images/Borana-oromo.png" 
+              class="card-img-top"
+              alt="Wenchi Crater Lake"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Borana Oromo Traditional Outfit</h5>
+              <p class="card-text">
+                A group of Borana Oromo men wearing cultural cotton clothes known as Bullukko and a head wear known as Marata. </p>
+              <a href="Wenchi/index.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Irrecha -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="karrayyu/images/festivals.jpg" 
+              class="card-img-top"
+              alt="Mount Kundudu"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Irrechaa</h5>
+              <p class="card-text">
+                A serene mountain offering panoramic views, ideal for trekking and connecting with nature.
+              </p>
+              <a href="cultural_event/irrecha.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Dabballe -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="karrayyu/images/dabbale-chldren.png" 
+              class="card-img-top"
+              alt="Abijatta Shalla"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Dabballee Children</h5>
+              <p class="card-text">
+                In the Borana culture sons are bound with their fathers as they grow to acquire the things that are expected from a decent Borana Oromo man.</p>
+              <a href="cultural_event/dabballe.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Gadaa -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="karrayyu/images/culture.jpg" 
+              class="card-img-top"
+              alt="Awash National Park"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Gadaa System</h5>
+              <p class="card-text">
+                A wildlife haven with stunning waterfalls, hot springs, and diverse animal species.
+              </p>
+              <a href="cultural_event/gadaa.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Butta Qalaa -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="karrayyu/images/butaa-qala.jpg" 
+              class="card-img-top"
+              alt="Lake Langano"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Butta Qalaa</h5>
+              <p class="card-text">
+                A beautiful lake perfect for swimming, birdwatching, and relaxing by the shore.
+              </p>
+              <a href="cultural_event/butta_qala.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Dhati Walal National park -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="Dhati-walal/images/dhati-walal1.jpg" 
+              class="card-img-top"
+              alt="Dhati Walal"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Dhati Walal National Park</h5>
+              <p class="card-text">
+                A beautiful lake perfect for swimming, birdwatching, and relaxing by the shore.
+              </p>
+              <a href="Dhati-walal/index.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Sof Umar Cave -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="Sof-Umar-Cave/images/Sof-Omar-cave.jpg" 
+              class="card-img-top"
+              alt="Sof Umar Cave"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sof Umar Cave</h5>
+              <p class="card-text">
+                A beautiful lake perfect for swimming, birdwatching, and relaxing by the shore.
+              </p>
+              <a href="Sof-Umar-Cave/index.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Yayo Forest -->
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="Yayu/images/yayo.jpg" 
+              class="card-img-top"
+              alt="Yayo Forest"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Yayo Forest</h5>
+              <p class="card-text">
+                A lush forest offering hiking trails, birdwatching, and a peaceful retreat into nature.
+              </p>
+              <a href="Yayu/index.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row">
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Destination</a></li>
+          <li><a href="#">Things to Do</a></li>
+          <li><a href="#">Booking Service</a></li>
+          <li><a href="#">Unique</a></li>
+          <li><a href="#">Map</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="col-md-4 mb-4">
+        <h5>About Us</h5>
+        <p>
+          Visit Oromia is your gateway to exploring the stunning landscapes, rich culture, and exciting adventures in Oromia, Ethiopia. Discover the beauty of nature, immerse yourself in local traditions, and create unforgettable memories.
+        </p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4 mb-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-decoration-none">
+              <i class="fab fa-youtube"></i> YouTube
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-4">
+      <p class="mb-0">
+        &copy; 2025 Visit Oromia. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS (for navbar toggle and dropdown) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

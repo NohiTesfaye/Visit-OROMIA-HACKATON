@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abijatta Shalla</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Custom CSS -->
+  <link href="styles/style2.css" rel="stylesheet" /> 
+  <link rel="stylesheet" href="styles/style.css" />
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+</head>
+<body>
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-globe"></i> VISIT OROMIA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="Home.php">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Bookings
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="hotels.php">Hotels</a></li>
+                            <li><a class="dropdown-item" href="flights.php">Flights</a></li>
+                            <li><a class="dropdown-item" href="trains.php">Trains</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOromia" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explore Oromia
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownOromia">
+                            <li><a class="dropdown-item" href="#">Natural Attractions</a></li>
+                            <li><a class="dropdown-item" href="Explore_Oromia/oromia_cultural_sites.php">Cultural Sites</a></li>
+                            <li><a class="dropdown-item" href="oromia_adventure_tours.php">Adventure Tours</a></li>
+                            <li><a class="dropdown-item" href="oromia_food_culture.php">Food & Culture</a></li>
+                            <li><a class="dropdown-item" href="chat.php">Chat with us!S</a></li>
+                            <li><a class="dropdown-item" href="video.html">VIDEO</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                    <?php if (isset($_SESSION["username"])) : ?>
+
+                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- Abijatta Shalla Content -->
+  <div class="destination-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <img
+        src="images/abijatta-shala3.jpg" 
+        alt="Abijatta Shalla"
+        class="hero-image"
+      />
+      <div class="hero-description">
+        <h1>Abijatta Shalla</h1>
+      
+      </div>
+    </div>
+
+    <!-- Horizontal Navigation Bar -->
+    <nav class="destination-navbar">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#welcome">Welcome</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#best-time">Best Time to Visit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#gallery">Gallery</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Content Sections -->
+    <div class="container">
+      <!-- Welcome Section -->
+      <section id="welcome" class="tab-content active">
+        <h2>Welcome to Abijatta Shalla</h2>
+        <p>
+          Abijatta Shalla National Park is located in the Great Rift Valley and is famous for its two contrasting lakes: Lake Abijatta, a shallow soda lake, and Lake Shalla, a deep crater lake. The park is a haven for birdlife, especially flamingos.
+        </p>
+      </section>
+
+      <!-- Best Time to Visit Section -->
+      <section id="best-time" class="tab-content">
+        <h2>Best Time to Visit</h2>
+        <p>
+          The best time to visit Abijatta Shalla National Park is during the dry season, from November to March, when the weather is pleasant, and birdwatching opportunities are at their peak.
+        </p>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery" class="tab-content">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+          <img src="images/abijatta-shala1.jpg" alt="Abijatta Shalla 1" />
+          <img src="images/abijatta-shala2.jpg" alt="Abijatta Shalla 2" />
+          <img src="images/abijatta-shala3.jpg" alt="Abijatta Shalla 3" />
+        </div>
+      </section>
+    </div>
+
+    <!-- Map Section -->
+<!-- Abijatta-Shalla National Park Map Section -->
+<section class="abijatta-map-container py-5">
+  <div class="container">
+    <!-- Distance Display Card -->
+    <div class="card mb-3 bg-light">
+      <div class="card-body py-2 text-center">
+        <div id="distanceInfo">
+          <i class="fas fa-map-marker-alt text-danger me-2"></i>
+          <span id="distanceText">Enable location to see distance to Abijatta-Shalla</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Map Container -->
+    <div id="abijattaMap" style="height: 600px; border-radius: 10px; border: 1px solid #ddd;"></div>
+  </div>
+
+  <!-- Required Libraries -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Map Implementation -->
+  <script>
+    // Initialize Map
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZWZyZW1tZWxha3UiLCJhIjoiY21hMWNmZ2RmMXpkNzJxc21nMW8yMWFpeiJ9.QVFNLkGpx1AHg2VJo4DKzQ'; // Replace with your token
+    const abijattaCoords = [38.583, 7.467]; // Between the two lakes
+    const map = new mapboxgl.Map({
+      container: 'abijattaMap',
+      style: 'mapbox://styles/mapbox/outdoors-v12',
+      center: abijattaCoords,
+      zoom: 10
+    });
+
+    // Add Features When Map Loads
+    map.on('load', () => {
+      // Add Abijatta-Shalla Marker
+      new mapboxgl.Marker({
+        color: '#FF0000',
+        scale: 1.5
+      })
+      .setLngLat(abijattaCoords)
+      .setPopup(new mapboxgl.Popup({ offset: 25 })
+        .setHTML('<h5>Abijatta-Shalla National Park</h5><p>Twin Lakes in Oromia, Ethiopia</p>'))
+      .addTo(map);
+
+      // Distance Calculation Function
+      function calculateDistance(userCoords) {
+        const R = 6371; // Earth radius in km
+        const dLat = (abijattaCoords[1] - userCoords[1]) * Math.PI / 180;
+        const dLon = (abijattaCoords[0] - userCoords[0]) * Math.PI / 180;
+        
+        const a = 
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(userCoords[1] * Math.PI / 180) * 
+          Math.cos(abijattaCoords[1] * Math.PI / 180) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2);
+          
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c; // Distance in km
+      }
+
+      // Get User Location
+      function updateUserLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              const userCoords = [
+                position.coords.longitude, 
+                position.coords.latitude
+              ];
+              
+              // Calculate and display distance
+              const distance = calculateDistance(userCoords);
+              document.getElementById('distanceText').innerHTML = 
+                `<strong>${distance.toFixed(1)} km</strong> from your location to Abijatta-Shalla`;
+              
+              // Add user marker
+              new mapboxgl.Marker({
+                color: '#38b000',
+                scale: 1.2
+              })
+              .setLngLat(userCoords)
+              .setPopup(new mapboxgl.Popup()
+                .setHTML('<h6>Your Location</h6>'))
+              .addTo(map);
+              
+              // Fit map to show both locations
+              map.fitBounds([userCoords, abijattaCoords], {
+                padding: 100,
+                maxZoom: 12
+              });
+            },
+            error => {
+              document.getElementById('distanceText').textContent = 
+                "Could not get your location: " + error.message;
+            }
+          );
+        } else {
+          document.getElementById('distanceText').textContent = 
+            "Geolocation is not supported by your browser";
+        }
+      }
+
+      // Add Location Button
+      const locationControl = document.createElement('div');
+      locationControl.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+      locationControl.innerHTML = `
+        <button id="locateBtn" title="Show my location">
+          <i class="fas fa-location-arrow"></i>
+        </button>
+      `;
+      
+      locationControl.querySelector('#locateBtn').addEventListener('click', () => {
+        updateUserLocation();
+      });
+      
+      map.addControl({
+        onAdd: function() { return locationControl; },
+        onRemove: function() {}
+      }, 'top-right');
+
+      // Try to get location automatically
+      updateUserLocation();
+    });
+
+    // Mobile Adaptation
+    if (window.innerWidth < 768) {
+      document.getElementById('abijattaMap').style.height = '450px';
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <style>
+    #abijattaMap {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    #distanceInfo {
+      font-size: 1.1rem;
+    }
+    #distanceText strong {
+      color: #d90429;
+      font-weight: 600;
+    }
+    .mapboxgl-ctrl button {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mapboxgl-popup-content {
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .mapboxgl-popup h5 {
+      color: #2b8a3e;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</section>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Load Header
+    fetch('includes/header/header.html')
+      .then((response) => response.text())
+      .then((data) => (document.getElementById('header').innerHTML = data))
+      .catch((error) => console.error('Error loading header:', error));
+
+    // Load Footer
+    fetch('includes/footer/footer.html')
+      .then((response) => response.text())
+      .then((data) => (document.getElementById('footer').innerHTML = data))
+      .catch((error) => console.error('Error loading footer:', error));
+  </script>
+  <!-- Custom JS for Tabs -->
+  <script>
+    // Tab Switching Functionality
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        // Remove active class from all tabs
+        document.querySelectorAll('.nav-link').forEach((link) => {
+          link.classList.remove('active');
+        });
+
+        // Add active class to the clicked tab
+        link.classList.add('active');
+
+        // Hide all tab content
+        document.querySelectorAll('.tab-content').forEach((content) => {
+          content.style.display = 'none';
+        });
+
+        // Show the selected tab content
+        const targetId = link.getAttribute('href').substring(1); // Get target ID
+        document.getElementById(targetId).style.display = 'block';
+      });
+    });
+
+    // Show the default tab on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.nav-link.active').click();
+    });
+  </script>
+  <!-- Custom JS -->
+  <script src="scripts/script.js"></script>
+</body>
+</html>

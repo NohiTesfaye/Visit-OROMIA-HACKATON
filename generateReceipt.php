@@ -22,7 +22,7 @@ ob_start();
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-		<title>Receipt | tourism_management</title>
+		<title>Receipt | VISIT OROMIA</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@ ob_start();
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
-			$dbname = "projectmeteor";
+			$dbname = "projectmeteor1";
 			
 			// Creating a connection to MySQL database
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -334,7 +334,7 @@ ob_start();
 								
 							<div class="serialNo text-center">
 								
-								<span class="rupee">₹</span><?php echo $row["price"]; ?>
+								<span class="rupee">ETB</span><?php echo $row["price"]; ?>
 								
 							</div>
 								
@@ -344,7 +344,7 @@ ob_start();
 								
 							<div class="serialNo text-center">
 								
-								<span class="rupee">₹</span><?php echo $fare ?>
+								<span class="rupee">ETB</span><?php echo $fare ?>
 								
 							</div>
 								
@@ -404,8 +404,7 @@ ob_start();
 					</div>
 					
 					<div class="info">
-						
-						<span class="strong">2.</span> It is mandatory to have a Government recognised photo identification (ID) when checking-in. This can include: Driving License, Passport, PAN Card, Voter ID Card or any other ID issued by the Government of India.
+						TAKE YOUR ID AND PASSPORT WHEN CHECK IN
 						
 					</div>
 					

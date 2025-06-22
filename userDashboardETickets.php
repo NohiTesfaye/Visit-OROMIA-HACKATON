@@ -46,7 +46,7 @@ if(!isset($_SESSION["username"]))
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
-		$dbname = "projectmeteor";
+		$dbname = "projectmeteor1";
 		
 		// Creating a connection to MySQL database
 		$conn = new mysqli($servername, $username, $password, $dbname);

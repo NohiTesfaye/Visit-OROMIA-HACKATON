@@ -217,7 +217,7 @@
 $servername = "localhost";
 $username="root";
 $password="";
-$dbname="projectmeteor";
+$dbname="projectmeteor1";
 $UserID="";
 $FullName="";
 $EMail="";
@@ -349,7 +349,7 @@ if(isset($_POST['update'])){
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Tourism Management System</a>
+            <a class="navbar-brand" href="#">VISIT OROMIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -520,7 +520,7 @@ if(isset($_POST['update'])){
                             $servername = "localhost";
                             $username = "root";
                             $password = "";
-                            $dbname = "projectmeteor";
+                            $dbname = "projectmeteor1";
 
                             // Create connection
                             $conn = new mysqli($servername, $username, $password, $dbname);

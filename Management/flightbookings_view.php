@@ -24,7 +24,7 @@ body{
 $servername = "localhost";
 $username="root";
 $password="";
-$dbname="projectmeteor";
+$dbname="projectmeteor1";
 $bookingID="";
 $hotelName="";
 $date="";

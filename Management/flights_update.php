@@ -24,7 +24,7 @@ body{
 $servername = "localhost";
 $username="root";
 $password="";
-$dbname="projectmeteor";
+$dbname="projectmeteor1";
 $flight_no="";
 $origin="";
 $destination="";
@@ -172,7 +172,7 @@ if(isset($_POST['update'])){
        <span class="icon-bar"></span>
        <span class="icon-bar"></span>
      </button>
-      <h1 class="navbar-brand"> Tourism Management System</h1>
+      <h1 class="navbar-brand"> VISIT OROMIA</h1>
     </div>
      <div class="collapse navbar-collapse" id="nav">
     <ul class="nav navbar-nav" style="float:right">
@@ -182,8 +182,8 @@ if(isset($_POST['update'])){
               <li><a href="hotelbookings_view.php">HOTEL BOOKINGS</a></li>
               <li><a href="flights_add.php">ADD FLIGHTS</a></li>
               <li><a href="flightbookings_view.php">FLIGHT BOOKINGS</a></li>
-              <li><a href="trains_add.php">ADD TRAINS</a></li>
-              <li><a href="trainbookings_view.php">TRAIN BOOKINGS</a></li>
+              <li><a href="trains_add.php">ADD BUS</a></li>
+              <li><a href="trainbookings_view.php">BUS BOOKINGS</a></li>
 			  <h3><a href="adminLogout.php">LOGOUT</a></h3>
     </ul>
   </div>
@@ -296,7 +296,7 @@ if(isset($_POST['update'])){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "projectmeteor";
+$dbname = "projectmeteor1";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

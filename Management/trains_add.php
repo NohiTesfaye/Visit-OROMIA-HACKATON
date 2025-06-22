@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Admin Panel | Trains </title>
+<title>Admin Panel | BUS </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@ body{
 $servername = "localhost";
 $username="root";
 $password="";
-$dbname="projectmeteor";
+$dbname="projectmeteor1";
 $trainNo="";
 $region="";
 $returnTrainNo="";
@@ -214,7 +214,7 @@ if(isset($_POST['update'])){
        <span class="icon-bar"></span>
        <span class="icon-bar"></span>
      </button>
-      <h1 class="navbar-brand"> Tourism Management System</h1>
+      <h1 class="navbar-brand"> VISIT OROMIA</h1>
     </div>
      <div class="collapse navbar-collapse" id="nav">
     <ul class="nav navbar-nav" style="float:right">
@@ -224,8 +224,8 @@ if(isset($_POST['update'])){
               <li><a href="hotelbookings_view.php">HOTEL BOOKINGS</a></li>
               <li><a href="flights_add.php">ADD FLIGHTS</a></li>
               <li><a href="flightbookings_view.php">FLIGHT BOOKINGS</a></li>
-              <li><a href="trains_add.php">ADD TRAINS</a></li>
-              <li><a href="trainbookings_view.php">TRAIN BOOKINGS</a></li>
+              <li><a href="trains_add.php">ADD BUS</a></li>
+              <li><a href="trainbookings_view.php">BUS BOOKINGS</a></li>
 			  <h3><a href="adminLogout.php">LOGOUT</a></h3>
     </ul>
   </div>
@@ -240,7 +240,7 @@ if(isset($_POST['update'])){
 	    <div class="col-lg-4">
 <form method ="post"   action="">  
 
-  <h4>Train Number (Use to Search train's details)</h4>
+  <h4>Bus Number (Use to Search bus's details)</h4>
   <input type="number" name="trainNo"  class="form-control" placeholder="Train No. /Automatic Number Genrates" value="<?php echo($trainNo);?>" disabled>
 
   <div class="form-group row">
@@ -252,13 +252,13 @@ if(isset($_POST['update'])){
 
 <div class="form-group row">
 	<div class="col-xs-6">
-		<h4>Return Train NO.</h4>
+		<h4>Return Bus NO.</h4>
 	<input type="number" name="returnTrainNO" class="form-control" placeholder="Enter return train no." value="<?php echo($returnTrainNo);?>" required>
 </div>
 
 <div class="form-group row">
 	<div class="col-xs-6">
-		<h4>Train Name</h4>
+		<h4>Bus Name</h4>
 	<input type="text" name="trainName" class="form-control" placeholder="Enter train name" value="<?php echo($trainName);?>" required>
 </div>
 
@@ -406,7 +406,7 @@ if(isset($_POST['update'])){
 </div>
 
     <div class="col-lg-8">
-			<h1 class="text-danger text-center" style="font-weight:bold">TRAINS INFORMATION</h1>
+			<h1 class="text-danger text-center" style="font-weight:bold">BUS INFORMATION</h1>
 			<hr>
 			<br>
 			<br>
@@ -414,7 +414,7 @@ if(isset($_POST['update'])){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "projectmeteor";
+$dbname = "projectmeteor1";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

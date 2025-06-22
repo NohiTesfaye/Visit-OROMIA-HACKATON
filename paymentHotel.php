@@ -17,7 +17,7 @@ if(!isset($_SESSION["username"]))
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-		<title>Payment | tourism_management</title>
+		<title>Payment | VISIT OROMIA</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,167 +36,129 @@ if(!isset($_SESSION["username"]))
 	
 	<body>
 		
-		<?php include("common/headerLoggedIn.php"); ?>
-		
-		<?php
-		
-			$totalPassengers=$_POST["totalPassengersHidden"];
-		
-			for($i=1; $i<=$totalPassengers; $i++) {
-				$name[$i]=$_POST["name$i"];
-				$gender[$i]=$_POST["gender$i"];
-			}
-		
-			$mode=$_POST["modeHidden"];
-			$fare=$_POST["fareHidden"];
-			$type=$_POST["typeHidden"];
-			$class=$_POST["classHidden"];
-			$origin=$_POST["originHidden"];
-			$destination=$_POST["destinationHidden"];
-			$depart=$_POST["departHidden"];
-			$return=$_POST["returnHidden"];
-			$adults=$_POST["adultsHidden"];
-			$children=$_POST["childrenHidden"];
-			$noOfPassengers=(int)$adults+(int)$children;
-		
-			if($type=="Return Trip") {
-				$flightNoOutbound=$_POST["flightNoOutboundHidden"];
-				$flightNoInbound=$_POST["flightNoInboundHidden"];
-			}
-			elseif($type=="One Way") {
-				$flightNoOutbound=$_POST["flightNoOutboundHidden"];
-			}
-		
-			if($class=="Economy Class")
-				$className="Economy";
-			else
-				$className="Business";
-		
-		?>
-		
-		<div class="spacer">a</div>
-		
-		<div class="col-sm-12 paymentWrapper">
-			
-			<div class="headingOne">
-				
-				Payment
-				
-			</div>
-			
-			<div class="totalAmount">
-				
-				Amount to be paid: <span class="sansSerif">₹</span> <?php echo $fare; ?>
-				
-			</div>
-			
-			<!--<div class="col-sm-3"></div>-->
-				
-				
-			<div class="col-sm-3"></div>
-			
-			<div class="col-sm-6">
-				
-				<div class="boxCenter">
-				
-				<div class="col-sm-12 tag">
-					
-					Card Number:
-					
-				</div>
-				
-				<div class="col-sm-12">
-					
-					<input type="text" class="input" name="cardNumber" placeholder="Enter the card number" />
-					
-				</div>
-				
-				<div class="col-sm-12 tag">
-					
-					Name on Card:
-					
-				</div>
-				
-				<div class="col-sm-12">
-					
-					<input type="text" class="input" name="nameOnCard" placeholder="Enter the name of the card holder" />
-					
-				</div>
-				
-				<div class="col-sm-6 tag">
-					
-					CVV:
-					
-				</div>
-				
-				<div class="col-sm-6 tag">
-					
-					Expiry:
-					
-				</div>
-				
-				<div class="col-sm-6">
-					
-					<input type="password" class="inputSmall" name="cvv" placeholder="CVV" />
-					
-				</div>
-				
-				<div class="col-sm-6">
-					
-					<input type="text" class="inputSmall" name="expiry" placeholder="MM/YY" />
-					
-				</div>
-				
-				<form action="generateTicket.php" method="POST">
-				
-					<div class="col-sm-12 bookingButton text-center">
-						<input type="submit" class="paymentButton" value="Pay Now">
-					</div>
-					
-					<input type="hidden" name="totalPassengersHidden" value="<?php echo $totalPassengers; ?>">
-						
-					<input type="hidden" name="fareHidden" value="<?php echo $fare; ?>">
-					<input type="hidden" name="typeHidden" value="<?php echo $type; ?>">
-					<input type="hidden" name="classHidden" value="<?php echo $class; ?>">
-					<input type="hidden" name="originHidden" value="<?php echo $origin; ?>">
-					<input type="hidden" name="destinationHidden" value="<?php echo $destination; ?>">
-					<input type="hidden" name="departHidden" value="<?php echo $depart; ?>">
-					<input type="hidden" name="returnHidden" value="<?php echo $return; ?>">
-					<input type="hidden" name="adultsHidden" value="<?php echo $adults; ?>">
-					<input type="hidden" name="childrenHidden" value="<?php echo $children; ?>">
-					<input type="hidden" name="modeHidden" value="<?php echo $mode ?>">
-					
-					<?php for($i=1; $i<=$totalPassengers; $i++) {?>
-					
-						<input type="hidden" name="nameHidden<?php echo $i; ?>" value="<?php echo $name[$i]; ?>">
-						<input type="hidden" name="genderHidden<?php echo $i; ?>" value="<?php echo $gender[$i]; ?>">
-					
-					<?php } ?>
-					
-					<?php if($type=="Return Trip") { ?>
-					<input type="hidden" name="flightNoOutboundHidden" value="<?php echo $flightNoOutbound; ?>">
-					<input type="hidden" name="flightNoInboundHidden" value="<?php echo $flightNoInbound; ?>">
-					<?php } elseif($type=="One Way") { ?>
-					<input type="hidden" name="flightNoOutboundHidden" value="<?php echo $flightNoOutbound; ?>">
-					<?php } ?>
-					
-					<?php
-					
-					?>
-					
-				</form>
-				</div>
-				
-			</div>
-			
-			<div class="col-sm-3"></div>
-			
-		</div> <!-- paymentWrapper -->
-	
-	<div class="spacerLarge">.</div> <!-- just a dummy class for creating some space -->
-			
-		<?php include("common/footer.php"); ?>
-				
+		<?php 
+session_start();
+include("common/headerLoggedIn.php"); 
+
+// Initialize variables
+$totalPassengers = $_POST["totalPassengersHidden"] ?? 0;
+$fare = $_POST["fareHidden"] ?? 0;
+$mode = $_POST["modeHidden"] ?? '';
+$type = $_POST["typeHidden"] ?? '';
+$class = $_POST["classHidden"] ?? '';
+$origin = $_POST["originHidden"] ?? '';
+$destination = $_POST["destinationHidden"] ?? '';
+$depart = $_POST["departHidden"] ?? '';
+$return = $_POST["returnHidden"] ?? '';
+$adults = $_POST["adultsHidden"] ?? 0;
+$children = $_POST["childrenHidden"] ?? 0;
+$noOfPassengers = (int)$adults + (int)$children;
+
+// Store passenger names
+$passengers = [];
+for($i = 1; $i <= $totalPassengers; $i++) {
+    $passengers[] = [
+        'name' => $_POST["name$i"] ?? '',
+        'gender' => $_POST["gender$i"] ?? ''
+    ];
+}
+
+// Chapa Payment Configuration
+$chapa_secret_key = 'CHASECK_TEST-pUjHY4B5oTzH3m3R1LT0kvNqRNTiRAaD'; // Replace with your key
+$tx_ref = 'HTL-' . uniqid(); // Unique transaction reference for hotels
+
+// Store booking data in session for webhook verification
+$_SESSION['booking_data'] = [
+    'tx_ref' => $tx_ref,
+    'fare' => $fare,
+    'passengers' => $passengers,
+    'type' => $type,
+    'flight_details' => [
+        'origin' => $origin,
+        'destination' => $destination,
+        'departure' => $depart,
+        'return' => $return
+    ]
+];
+?>
+
+<div class="spacer">a</div>
+
+<div class="col-sm-12 paymentWrapper">
+    <div class="headingOne">Payment</div>
+    
+    <div class="totalAmount">
+        Amount to be paid: <span class="sansSerif">ETB</span> <?php echo htmlspecialchars($fare); ?>
+    </div>
+    
+    <div class="col-sm-3"></div>
+    
+    <div class="col-sm-6">
+        <div class="boxCenter">
+            <form method="POST" id="chapaPaymentForm">
+                <div class="col-sm-12 tag">
+                    Full Name:
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="input" name="nameOnCard" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="col-sm-12 tag">
+                    Email:
+                </div>
+                <div class="col-sm-12">
+                    <input type="email" class="input" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <!-- Hidden fields for all booking data -->
+                <input type="hidden" name="tx_ref" value="<?php echo $tx_ref; ?>">
+                <input type="hidden" name="fareHidden" value="<?php echo $fare; ?>">
+                <input type="hidden" name="totalPassengersHidden" value="<?php echo $totalPassengers; ?>">
+                <input type="hidden" name="typeHidden" value="<?php echo $type; ?>">
+                <input type="hidden" name="classHidden" value="<?php echo $class; ?>">
+                <input type="hidden" name="originHidden" value="<?php echo $origin; ?>">
+                <input type="hidden" name="destinationHidden" value="<?php echo $destination; ?>">
+                <input type="hidden" name="departHidden" value="<?php echo $depart; ?>">
+                <input type="hidden" name="returnHidden" value="<?php echo $return; ?>">
+                <input type="hidden" name="adultsHidden" value="<?php echo $adults; ?>">
+                <input type="hidden" name="childrenHidden" value="<?php echo $children; ?>">
+                <input type="hidden" name="modeHidden" value="<?php echo $mode; ?>">
+                <input type="hidden" name="amount" value="<?php echo $fare; ?>">
+                <input type="hidden" name="currency" value="ETB">
+                <input type="hidden" name="title" value="Hotel Booking">
+                <input type="hidden" name="description" value="Booking for <?php echo $noOfPassengers; ?> guests">
+                
+                <?php foreach($passengers as $i => $passenger): ?>
+                    <input type="hidden" name="nameHidden<?php echo $i+1; ?>" value="<?php echo htmlspecialchars($passenger['name']); ?>">
+                    <input type="hidden" name="genderHidden<?php echo $i+1; ?>" value="<?php echo htmlspecialchars($passenger['gender']); ?>">
+                <?php endforeach; ?>
+                
+                <?php if($type == "Return Trip"): ?>
+                    <input type="hidden" name="flightNoOutboundHidden" value="<?php echo $_POST["flightNoOutboundHidden"] ?? ''; ?>">
+                    <input type="hidden" name="flightNoInboundHidden" value="<?php echo $_POST["flightNoInboundHidden"] ?? ''; ?>">
+                <?php elseif($type == "One Way"): ?>
+                    <input type="hidden" name="flightNoOutboundHidden" value="<?php echo $_POST["flightNoOutboundHidden"] ?? ''; ?>">
+                <?php endif; ?>
+                
+                <div class="col-sm-12 bookingButton text-center">
+                    <button type="submit" name="pay_with_chapa" class="paymentButton">Pay with Chapa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="col-sm-3"></div>
+</div>
+
+<?php 
+// Process Chapa payment when form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay_with_chapa'])) {
+    require_once 'chapa_payment_processor.php'; // Shared payment processing file
+    processChapaPayment($_POST, $chapa_secret_key);
+}
+
+include("common/footer.php"); 
+?>
 	</body>
 	
 	<!-- BODY TAG ENDS -->

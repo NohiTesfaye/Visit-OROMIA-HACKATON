@@ -1,12 +1,14 @@
-<?php session_start();
-if(!isset($_SESSION["username"]))
-{
-    	header("Location:blockedBooking.php");
-   		$_SESSION['url'] = $_SERVER['REQUEST_URI']; 
+<?php 
+session_start();
+if(!isset($_SESSION["username"])) {
+    $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+    header("Location:blockedBooking.php");
+    exit(); // Add this
 }
 ?>
 
 <!DOCTYPE html>
+...
 
 <html lang="en">
 	

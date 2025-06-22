@@ -24,7 +24,7 @@ body{
 $servername = "localhost";
 $username="root";
 $password="";
-$dbname="projectmeteor";
+$dbname="projectmeteor1";
 $trainNo="";
 $region="";
 $returnTrainNo="";
@@ -215,7 +215,7 @@ if(isset($_POST['update'])){
        <span class="icon-bar"></span>
        <span class="icon-bar"></span>
      </button>
-      <h1 class="navbar-brand"> Tourism Management System</h1>
+      <h1 class="navbar-brand"> VISIT OROMIA</h1>
     </div>
      <div class="collapse navbar-collapse" id="nav">
     <ul class="nav navbar-nav" style="float:right">
@@ -242,7 +242,7 @@ if(isset($_POST['update'])){
 	    <div class="col-lg-4">
 <form method ="post"   action="">  
 
-  <h4>Train Number (Use to Search train's details)</h4>
+  <h4>BUS Number (Use to Search train's details)</h4>
   <input type="number" name="trainNo"  class="form-control" placeholder="Train No. /Automatic Number Genrates" value="<?php echo($trainNo);?>">
 
   <div class="form-group row">
@@ -420,7 +420,7 @@ if(isset($_POST['update'])){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "projectmeteor";
+$dbname = "projectmeteor1";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

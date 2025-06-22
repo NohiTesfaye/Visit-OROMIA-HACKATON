@@ -17,7 +17,7 @@ if(!isset($_SESSION["username"]))
   		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-		<title>Dashboard | tourism_management</title>
+		<title>Dashboard | VISIT</title>
     
     	<link href="css/main.css" rel="stylesheet">
     	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@ if(!isset($_SESSION["username"]))
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
-		$dbname = "projectmeteor";
+		$dbname = "projectmeteor1";
 		
 		// Creating a connection to MySQL database
 		$conn = new mysqli($servername, $username, $password, $dbname);

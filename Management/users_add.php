@@ -1,503 +1,482 @@
-<!Doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Admin Panel | Users </title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="js/bootstrap.min.js"></script>
-<style>
-	body {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-}
-</style>
-
-</head>
-<?php
-$servername = "localhost";
-$username="root";
-$password="";
-$dbname="projectmeteor";
-$UserID="";
-$FullName="";
-$EMail="";
-$Phone="";
-$Username="";
-$Password="";
-$AddressLine1="";
-$AddressLine2="";
-$City="";
-$State="";
-$Date="";
-
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-//connect to mysql database
-try{
-	$conn =mysqli_connect($servername,$username,$password,$dbname);
-}catch(MySQLi_Sql_Exception $ex){
-	echo("Connection Error");
-}
-//get data from the form
-function getData()
-{
-	$data = array();
-
-$data[1]=$_POST['FullName'];
-$data[2]=$_POST['EMail'];
-$data[3]=$_POST['Phone'];
-$data[4]=$_POST['Username'];
-$data[5]=$_POST['Password'];
-$data[6]=$_POST['AddressLine1'];
-$data[7]=$_POST['AddressLine2'];
-$data[8]=$_POST['City'];
-$data[9]=$_POST['State'];
-$data[10]=$_POST['Date'];
-	return $data;
-}
-//search
-if(isset($_POST['search']))
-{
-	$info = getData();
-	$search_query="SELECT * FROM users WHERE UserID = '$info[0]'";
-	$search_result=mysqli_query($conn, $search_query);
-		if($search_result)
-		{
-			if(mysqli_num_rows($search_result))
-			{
-				while($rows = mysqli_fetch_array($search_result))
-				{
-					$UserID = $rows['UserID'];
-					$FullName = $rows['FullName'];
-					$EMail = $rows['EMail'];
-					$Phone = $rows['Phone'];
-					$Username = $rows['Username'];
-                    $Password = $rows['Password'];
-                    $AddressLine1 = $rows['AddressLine1'];
-                    $AddressLine2 = $rows['AddressLine2'];
-                    $City = $rows['City'];
-                    $State = $rows['State'];
-					$Date = $rows['Date'];
-
-				}
-			}else{
-				echo("No data are available");
-			}
-		} else{
-			echo("Result error");
-		}
-
-}
-//insert
-if(isset($_POST['insert'])){
-	$info = getData();
-	$insert_query="INSERT INTO `users`(`FullName`, `EMail`, `Phone`, `Username`,`Password`,`AddressLine1`,`AddressLine2`,`City`,`State`,`Date`) VALUES ('$info[1]','$info[2]','$info[3]','$info[4]','$info[5]','$info[6]','$info[7]','$info[8]','$info[9]','$info[10]')";
-	try{
-		$insert_result=mysqli_query($conn, $insert_query);
-		if($insert_result)
-		{
-			if(mysqli_affected_rows($conn)>0){
-				echo("Data inserted successfully");
-
-			}else{
-				echo("Data not inserted");
-			}
-		}
-	}catch(Exception $ex){
-		echo("error inserted".$ex->getMessage());
-	}
-}
-//delete
-if(isset($_POST['delete'])){
-	$info = getData();
-	$delete_query = "DELETE FROM `users` WHERE UserID = '$info[0]'";
-	try{
-		$delete_result = mysqli_query($conn, $delete_query);
-		if($delete_result){
-			if(mysqli_affected_rows($conn)>0)
-			{
-				echo("Data deleted");
-			}else{
-				echo("Data not deleted");
-			}
-		}
-	}catch(Exception $ex){
-		echo("Error in deleting".$ex->getMessage());
-	}
-}
-//edit
-if(isset($_POST['update'])){
-	$info = getData();
-	$update_query="UPDATE `users` SET FullName='$info[1]',EMail='$info[2]',Phone='$info[3]',Username='$info[4]',Password='$info[5]',AddressLine1='$info[6]',AddressLine2='$info[7]',City='$info[8]',State='$info[9]',Date='$info[10]' WHERE UserID = '$info[0]'";
-	try{
-		$update_result=mysqli_query($conn, $update_query);
-		if($update_result){
-			if(mysqli_affected_rows($conn)>0){
-				echo("Data updated");
-			}else{
-				echo("Data not updated");
-			}
-		}
-	}catch(Exception $ex){
-		echo("Error in updating".$ex->getMessage());
-	}
-}
-
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tourism Management System</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .navbar-brand {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #fff !important;
-    }
-    .navbar {
-      background-color: #007bff !important;
-      border-radius: 0;
-      margin-bottom: 20px;
-    }
-    .navbar-nav {
-      margin-left: auto;
-    }
-    .navbar-nav a {
-      color: #fff !important;
-      font-size: 1.1rem;
-      margin: 0 10px;
-    }
-    .navbar-nav a:hover {
-      color: #f8f9fa !important;
-      text-decoration: underline;
-    }
-    .form-container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
-    }
-    .form-container h4 {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .form-control {
-      border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 15px;
-    }
-    .btn-success, .btn-info {
-      width: 100%;
-      padding: 12px;
-      font-size: 1.1rem;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-    .btn-success {
-      background-color: #28a745;
-      border: none;
-    }
-    .btn-info {
-      background-color: #17a2b8;
-      border: none;
-    }
-    .btn-success:hover {
-      background-color: #218838;
-    }
-    .btn-info:hover {
-      background-color: #138496;
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <i class="fas fa-globe"></i> Tourism Management System
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="Home.php">HOME</a></li>
-          <li class="nav-item"><a class="nav-link" href="users_add.php">USERS</a></li>
-          <li class="nav-item"><a class="nav-link" href="hotels_add.php">ADD HOTELS</a></li>
-          <li class="nav-item"><a class="nav-link" href="hotelbookings_view.php">HOTEL BOOKINGS</a></li>
-          <li class="nav-item"><a class="nav-link" href="flights_add.php">ADD FLIGHTS</a></li>
-          <li class="nav-item"><a class="nav-link" href="flightbookings_view.php">FLIGHT BOOKINGS</a></li>
-          <li class="nav-item"><a class="nav-link" href="trains_add.php">ADD TRAINS</a></li>
-          <li class="nav-item"><a class="nav-link" href="trainbookings_view.php">TRAIN BOOKINGS</a></li>
-          <li class="nav-item"><a class="nav-link" href="adminLogout.php">LOGOUT</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Form Container -->
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="form-container">
-          <form method="post" action="">
-            <h4>UserID Number (Use to Search user's data)</h4>
-            <input type="number" name="UserID" class="form-control" placeholder="UserID No. / Automatic Number Generates" value="<?php echo($UserID); ?>" disabled>
-
-            <div class="row">
-              <div class="col-md-6">
-                <h4>Full Name</h4>
-                <input type="text" name="FullName" class="form-control" placeholder="Enter Full Name" value="<?php echo($FullName); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <h4>Username</h4>
-                <input type="text" name="Username" class="form-control" placeholder="Enter Username" value="<?php echo($Username); ?>" required>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <h4>Email</h4>
-                <input type="email" name="EMail" class="form-control" placeholder="Enter Email" value="<?php echo($EMail); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <h4>Phone (10-digit)</h4>
-                <input type="tel" pattern="^\d{10}$" class="form-control" name="Phone" placeholder="10-digit Phone Number" value="<?php echo($Phone); ?>" required>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <h4>Password</h4>
-                <input type="password" name="Password" class="form-control" placeholder="Enter Password" value="<?php echo($Password); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <h4>Address Line 1</h4>
-                <input type="text" name="AddressLine1" class="form-control" placeholder="Enter Address Line 1" value="<?php echo($AddressLine1); ?>" required>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <h4>Address Line 2</h4>
-                <input type="text" name="AddressLine2" class="form-control" placeholder="Enter Address Line 2" value="<?php echo($AddressLine2); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <h4>City</h4>
-                <input type="text" name="City" class="form-control" placeholder="Enter City" value="<?php echo($City); ?>" required>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <h4>State</h4>
-                <input type="text" name="State" class="form-control" placeholder="Enter State" value="<?php echo($State); ?>" required>
-              </div>
-              <div class="col-md-6">
-                <h4>Date</h4>
-                <input type="date" name="Date" class="form-control" placeholder="Enter Date" value="<?php echo($Date); ?>" required>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12">
-                <input type="submit" class="btn btn-success" name="insert" value="Add">
-                <a href="users_update.php" class="btn btn-info">Update | Delete | Search</a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users Data - Admin Panel</title>
-    <!-- Bootstrap CSS for modern styling -->
+    <title>Admin Panel | User Management</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts for a modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS for additional styling -->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | User Management</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --danger-color: #d63031;
+        }
+        
         body {
+            font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
-            font-family: 'Roboto', sans-serif;
+            color: var(--dark-color);
+            padding-top: 70px; /* For fixed navbar */
         }
-        h1 {
-            font-weight: bold;
-            margin-top: 20px;
-            color: #dc3545; /* Red color for emphasis */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease-in-out;
+        
+        /* Navbar Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.8rem 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
-        .table {
-            margin-top: 20px;
-            border: 2px solid #000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-in-out;
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
         }
-        .table th {
-            background-color: #343a40; /* Dark gray header */
-            color: #fff;
-            font-size: 18px;
-            text-align: center;
-            padding: 15px;
+        
+        .nav-link {
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
         }
-        .table td {
-            text-align: center;
-            vertical-align: middle;
-            padding: 12px;
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.2);
         }
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(0, 0, 0, 0.05); /* Light striped effect */
+        
+        .navbar-nav .nav-link i {
+            min-width: 20px;
+            margin-right: 5px;
         }
-        .table-hover tbody tr:hover {
-            background-color: rgba(0, 0, 0, 0.075); /* Hover effect */
-            transform: scale(1.02);
-            transition: transform 0.2s ease-in-out;
-        }
-        .container {
-            max-width: 100%;
-            padding: 20px;
-        }
-        .btn-refresh {
-            background-color: #28a745; /* Green color for the refresh button */
-            color: #fff;
+        
+        /* Card Styles */
+        .card {
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            background: white;
         }
-        .btn-refresh:hover {
-            background-color: #218838; /* Darker green on hover */
+        
+        .card-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.2rem 1.5rem;
+            border-bottom: none;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
         }
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        
+        .card-title i {
+            margin-right: 10px;
+        }
+        
+        /* Form Styles */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+        }
+        
+        /* Status Messages */
+        .status-message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: rgba(0, 184, 148, 0.2);
+            color: var(--success-color);
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .error-message {
+            background-color: rgba(214, 48, 49, 0.2);
+            color: var(--danger-color);
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                padding: 1rem 0;
+            }
+            .nav-link {
+                margin: 0.2rem 0;
+                padding: 0.8rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1><i class="fas fa-users-cog"></i> USERS DATA - ADMIN PANEL</h1>
-                <hr>
-                <button class="btn-refresh" onclick="window.location.reload();">
-                    <i class="fas fa-sync-alt"></i> Refresh Data
-                </button>
-                <br><br>
-                <?php
-                // Database connection details
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "projectmeteor";
+   <!-- Top Navigation Bar -->
+   <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-globe-americas"></i> Tourism Admin
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home.php">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="users_add.php">
+                            <i class="fas fa-users"></i> User Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels_add.php">
+                            <i class="fas fa-hotel"></i> Hotels
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotelbookings_view.php">
+                            <i class="fas fa-calendar-check"></i> Hotel Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="flights_add.php">
+                            <i class="fas fa-plane"></i> Flights
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="flightbookings_view.php">
+                            <i class="fas fa-ticket-alt"></i> Flight Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trains_add.php">
+                            <i class="fas fa-train"></i> Trains
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trainbookings_view.php">
+                            <i class="fas fa-ticket-alt"></i> Train Bookings
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminLogout.php">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <!-- Main Content -->
+     <div class="container my-5">
+        <!-- Add New User Card (Centered in Middle) -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-user-plus"></i> Add New User</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Your PHP form code here -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+                            <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "projectmeteor1";
+                            $UserID = "";
+                            $FullName = "";
+                            $EMail = "";
+                            $Phone = "";
+                            $Username = "";
+                            $Password = "";
+                            $AddressLine1 = "";
+                            $AddressLine2 = "";
+                            $City = "";
+                            $State = "";
+                            $Date = "";
 
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+                            // Connect to MySQL database
+                            try {
+                                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                            } catch (MySQLi_Sql_Exception $ex) {
+                                echo '<div class="error-message status-message">Connection Error: ' . $ex->getMessage() . '</div>';
+                            }
 
-                // Fetch data from the `users` table
-                $sql = "SELECT UserID, FullName, EMail, Phone, Username, Password, AddressLine1, AddressLine2, City, State, Date FROM users";
-                $result = $conn->query($sql);
+                            // Get data from the form
+                            function getData() {
+                                $data = array();
+                                $data[0] = isset($_POST['UserID']) ? $_POST['UserID'] : '';
+                                $data[1] = isset($_POST['FullName']) ? $_POST['FullName'] : '';
+                                $data[2] = isset($_POST['EMail']) ? $_POST['EMail'] : '';
+                                $data[3] = isset($_POST['Phone']) ? $_POST['Phone'] : '';
+                                $data[4] = isset($_POST['Username']) ? $_POST['Username'] : '';
+                                $data[5] = isset($_POST['Password']) ? $_POST['Password'] : '';
+                                $data[6] = isset($_POST['AddressLine1']) ? $_POST['AddressLine1'] : '';
+                                $data[7] = isset($_POST['AddressLine2']) ? $_POST['AddressLine2'] : '';
+                                $data[8] = isset($_POST['City']) ? $_POST['City'] : '';
+                                $data[9] = isset($_POST['State']) ? $_POST['State'] : '';
+                                $data[10] = isset($_POST['Date']) ? $_POST['Date'] : '';
+                                return $data;
+                            }
 
-                // Display data in a table
-                if ($result->num_rows > 0) {
-                    echo '
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>UserID</th>
-                                    <th>Full Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Address Line 1</th>
-                                    <th>Address Line 2</th>
-                                    <th>City</th>
-                                    <th>State</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>';
+                            // Insert new user
+                            if (isset($_POST['insert'])) {
+                                $info = getData();
+                                
+                                // Validate required fields
+                                if (empty($info[1]) || empty($info[2]) || empty($info[4]) || empty($info[5])) {
+                                    echo '<div class="error-message status-message">Please fill in all required fields</div>';
+                                } else {
+                                    $insert_query = "INSERT INTO `users` (`FullName`, `EMail`, `Phone`, `Username`, `Password`, `AddressLine1`, `AddressLine2`, `City`, `State`, `Date`) 
+                                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                    
+                                    try {
+                                        $stmt = $conn->prepare($insert_query);
+                                        $stmt->bind_param("ssssssssss", $info[1], $info[2], $info[3], $info[4], $info[5], $info[6], $info[7], $info[8], $info[9], $info[10]);
+                                        $stmt->execute();
+                                        
+                                        if ($stmt->affected_rows > 0) {
+                                            echo '<div class="success-message status-message">User added successfully!</div>';
+                                            // Clear form fields
+                                            $FullName = $EMail = $Phone = $Username = $Password = $AddressLine1 = $AddressLine2 = $City = $State = $Date = '';
+                                        } else {
+                                            echo '<div class="error-message status-message">Failed to add user</div>';
+                                        }
+                                    } catch (Exception $ex) {
+                                        echo '<div class="error-message status-message">Error: ' . $ex->getMessage() . '</div>';
+                                    }
+                                }
+                            }
+                            ?>
+                            
+                            <form method="post" action="">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="FullName" class="form-label">Full Name *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" name="FullName" class="form-control" placeholder="John Doe" value="<?php echo htmlspecialchars($FullName); ?>" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="Username" class="form-label">Username *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                            <input type="text" name="Username" class="form-control" placeholder="johndoe" value="<?php echo htmlspecialchars($Username); ?>" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="EMail" class="form-label">Email *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            <input type="email" name="EMail" class="form-control" placeholder="john@example.com" value="<?php echo htmlspecialchars($EMail); ?>" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="Phone" class="form-label">Phone</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="tel" pattern="^\d{10}$" class="form-control" name="Phone" placeholder="1234567890" value="<?php echo htmlspecialchars($Phone); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="Password" class="form-label">Password *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                            <input type="password" name="Password" class="form-control" placeholder="••••••••" value="<?php echo htmlspecialchars($Password); ?>" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="Date" class="form-label">Date</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                            <input type="date" name="Date" class="form-control" value="<?php echo htmlspecialchars($Date); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <label for="AddressLine1" class="form-label">Address Line 1</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                            <input type="text" name="AddressLine1" class="form-control" placeholder="123 Main St" value="<?php echo htmlspecialchars($AddressLine1); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <label for="AddressLine2" class="form-label">Address Line 2</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                            <input type="text" name="AddressLine2" class="form-control" placeholder="Apt 4B" value="<?php echo htmlspecialchars($AddressLine2); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="City" class="form-label">City</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                            <input type="text" name="City" class="form-control" placeholder="New York" value="<?php echo htmlspecialchars($City); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="State" class="form-label">State</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                                            <input type="text" name="State" class="form-control" placeholder="NY" value="<?php echo htmlspecialchars($State); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" name="insert" class="btn btn-success btn-lg w-100">
+                                            <i class="fas fa-user-plus me-2"></i> Add User
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-10">
+                    <div class="card animated-card" style="animation-delay: 0.2s;">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-users"></i> Current Users</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <?php
+                                // Fetch data from the `users` table
+                                $sql = "SELECT UserID, FullName, EMail, Phone, Username, City, Date FROM users ORDER BY UserID DESC LIMIT 10";
+                                $result = $conn->query($sql);
 
-                    // Output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        echo '
-                        <tr>
-                            <td>' . htmlspecialchars($row['UserID']) . '</td>
-                            <td>' . htmlspecialchars($row['FullName']) . '</td>
-                            <td>' . htmlspecialchars($row['EMail']) . '</td>
-                            <td>' . htmlspecialchars($row['Phone']) . '</td>
-                            <td>' . htmlspecialchars($row['Username']) . '</td>
-                            <td>' . htmlspecialchars($row['Password']) . '</td>
-                            <td>' . htmlspecialchars($row['AddressLine1']) . '</td>
-                            <td>' . htmlspecialchars($row['AddressLine2']) . '</td>
-                            <td>' . htmlspecialchars($row['City']) . '</td>
-                            <td>' . htmlspecialchars($row['State']) . '</td>
-                            <td>' . htmlspecialchars($row['Date']) . '</td>
-                        </tr>';
-                    }
-
-                    echo '
-                            </tbody>
-                        </table>
-                    </div>';
-                } else {
-                    echo '<p class="text-center text-muted">No records found.</p>';
-                }
-
-                // Close the connection
-                $conn->close();
-                ?>
+                                if ($result->num_rows > 0) {
+                                    echo '<table class="table table-hover align-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th><i class="fas fa-id-card"></i> ID</th>
+                                                    <th><i class="fas fa-user"></i> Name</th>
+                                                    <th><i class="fas fa-envelope"></i> Email</th>
+                                                    <th><i class="fas fa-phone"></i> Phone</th>
+                                                    <th><i class="fas fa-user"></i> Username</th>
+                                                    <th><i class="fas fa-calendar"></i> Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>';
+                                    
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo '<tr>
+                                                <td>' . htmlspecialchars($row['UserID']) . '</td>
+                                                <td>' . htmlspecialchars($row['FullName']) . '</td>
+                                                <td>' . htmlspecialchars($row['EMail']) . '</td>
+                                                <td>' . htmlspecialchars($row['Phone']) . '</td>
+                                                <td>' . htmlspecialchars($row['Username']) . '</td>
+                                                <td>' . htmlspecialchars($row['Date']) . '</td>
+                                              </tr>';
+                                    }
+                                    
+                                    echo '</tbody></table>';
+                                } else {
+                                    echo '<div class="alert alert-info">No users found in the database</div>';
+                                }
+                                ?>
+                            </div>
+                            <div class="d-grid gap-2 mt-3">
+                                <a href="users_update.php" class="btn btn-primary">
+                                    <i class="fas fa-edit me-2"></i> Manage Users (Edit/Delete)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS (optional) -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Show status messages if they exist
+        document.addEventListener('DOMContentLoaded', function()) {
+            const statusMessages = document.querySelectorAll('.status-message');
+            statusMessages.forEach(message => {
+                if(message.textContent.trim() !== '') {
+                    message.style.display = 'block';
+                    setTimeout(() => {
+                        message.style.opacity = '0';
+                        message.style.transition = 'opacity 1s ease';
+                        setTimeout(() => message.remove(), 1000);
+                    }, 5000);
+                }
+            });
+            
+          };
+            
+            // Close sidebar when clicking outside on mobile
+          
+    </script>
 </body>
 </html>

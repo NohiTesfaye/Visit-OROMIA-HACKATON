@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhati Wolel</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Custom CSS -->
+  <link href="styles/style2.css" rel="stylesheet" /> 
+  <link rel="stylesheet" href="styles/style.css" />
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+</head>
+<body>
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-globe"></i> VISIT OROMIA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="Home.php">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Bookings
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="hotels.php">Hotels</a></li>
+                            <li><a class="dropdown-item" href="flights.php">Flights</a></li>
+                            <li><a class="dropdown-item" href="trains.php">Trains</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOromia" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explore Oromia
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownOromia">
+                            <li><a class="dropdown-item" href="#">Natural Attractions</a></li>
+                            <li><a class="dropdown-item" href="Explore_Oromia/oromia_cultural_sites.php">Cultural Sites</a></li>
+                            <li><a class="dropdown-item" href="oromia_adventure_tours.php">Adventure Tours</a></li>
+                            <li><a class="dropdown-item" href="oromia_food_culture.php">Food & Culture</a></li>
+                            <li><a class="dropdown-item" href="chat.php">Chat with us!S</a></li>
+                            <li><a class="dropdown-item" href="video.html">VIDEO</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                    <?php if (isset($_SESSION["username"])) : ?>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+                    <?php else : ?>
+                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- Dhati Walal Content -->
+  <div class="destination-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <img
+        src="images/dhati-walal1.jpg" 
+        alt="Dhati Walal"
+        class="hero-image"
+      />
+      <div class="hero-description">
+        <h1>Dhati Walal National Park</h1>
+   
+      </div>
+    </div>
+
+    <!-- Horizontal Navigation Bar -->
+    <nav class="destination-navbar">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#welcome">Welcome</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#best-time">Best Time to Visit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#gallery">Gallery</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Content Sections -->
+    <div class="container">
+      <!-- Welcome Section -->
+      <section id="welcome" class="tab-content active">
+        <h2>Welcome to Dhati Walal</h2>
+        <p>
+          Dhati Walal is a pristine natural area located in the Oromia region of Ethiopia. It is known for its breathtaking landscapes, diverse wildlife, and tranquil environment, making it an ideal destination for eco-tourism.
+        </p>
+      </section>
+
+      <!-- Best Time to Visit Section -->
+      <section id="best-time" class="tab-content">
+        <h2>Best Time to Visit</h2>
+        <p>
+          The best time to visit Dhati Walal is during the dry season, from November to March, when the weather is pleasant, and the trails are accessible.
+        </p>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery" class="tab-content">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+          <img src="images/dhati-walal1.jpg" alt="Dhati Walal 1" />
+          <img src="images/dhati-walal2.jpg" alt="Dhati Walal 2" />
+          <img src="images/dhati-walal.jpeg" alt="Dhati Walal 3" />
+        </div>
+      </section>
+    </div>
+
+    <!-- Map Section -->
+<!-- Dhati Walel National Park Map Section -->
+<section class="walel-map-container py-5">
+  <div class="container">
+    <!-- Distance Display Card -->
+    <div class="card mb-3 bg-light">
+      <div class="card-body py-2 text-center">
+        <div id="distanceInfo">
+          <i class="fas fa-map-marker-alt text-danger me-2"></i>
+          <span id="distanceText">Enable location to see distance to Dhati Walel National Park</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Map Container -->
+    <div id="walelMap" style="height: 600px; border-radius: 10px; border: 1px solid #ddd;"></div>
+  </div>
+
+  <!-- Required Libraries -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Map Implementation -->
+  <script>
+    // Initialize Map
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZWZyZW1tZWxha3UiLCJhIjoiY21hMWNmZ2RmMXpkNzJxc21nMW8yMWFpeiJ9.QVFNLkGpx1AHg2VJo4DKzQ'; // Replace with your token
+    const walelCoords = [40.25, 8.75]; // Approximate coordinates of Dhati Walel
+    const map = new mapboxgl.Map({
+      container: 'walelMap',
+      style: 'mapbox://styles/mapbox/satellite-streets-v11', // Hybrid view for park features
+      center: walelCoords,
+      zoom: 11
+    });
+
+    // Add Features When Map Loads
+    map.on('load', () => {
+      // Add Park Marker
+      new mapboxgl.Marker({
+        color: '#FF9E00', // Orange marker for the park
+        scale: 1.5
+      })
+      .setLngLat(walelCoords)
+      .setPopup(new mapboxgl.Popup({ offset: 25 })
+        .setHTML('<h5>Dhati Walel National Park</h5><p>Ethiopian Highlands National Park</p><p>Known for its biodiversity</p>'))
+      .addTo(map);
+
+      // Distance Calculation Function
+      function calculateDistance(userCoords) {
+        const R = 6371; // Earth radius in km
+        const dLat = (walelCoords[1] - userCoords[1]) * Math.PI / 180;
+        const dLon = (walelCoords[0] - userCoords[0]) * Math.PI / 180;
+        
+        const a = 
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(userCoords[1] * Math.PI / 180) * 
+          Math.cos(walelCoords[1] * Math.PI / 180) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2);
+          
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c; // Distance in km
+      }
+
+      // Get User Location
+      function updateUserLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              const userCoords = [
+                position.coords.longitude, 
+                position.coords.latitude
+              ];
+              
+              // Calculate and display distance
+              const distance = calculateDistance(userCoords);
+              document.getElementById('distanceText').innerHTML = 
+                `<strong>${distance.toFixed(1)} km</strong> from your location to Dhati Walel`;
+              
+              // Add user marker
+              new mapboxgl.Marker({
+                color: '#7209B7', // Purple color for user marker
+                scale: 1.2
+              })
+              .setLngLat(userCoords)
+              .setPopup(new mapboxgl.Popup()
+                .setHTML('<h6>Your Location</h6>'))
+              .addTo(map);
+              
+              // Fit map to show both locations
+              map.fitBounds([userCoords, walelCoords], {
+                padding: 100,
+                maxZoom: 12
+              });
+            },
+            error => {
+              document.getElementById('distanceText').textContent = 
+                "Could not get your location: " + error.message;
+            }
+          );
+        } else {
+          document.getElementById('distanceText').textContent = 
+            "Geolocation is not supported by your browser";
+        }
+      }
+
+      // Add Location Button
+      const locationControl = document.createElement('div');
+      locationControl.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+      locationControl.innerHTML = `
+        <button id="locateBtn" title="Show my location">
+          <i class="fas fa-location-arrow"></i>
+        </button>
+      `;
+      
+      locationControl.querySelector('#locateBtn').addEventListener('click', () => {
+        updateUserLocation();
+      });
+      
+      map.addControl({
+        onAdd: function() { return locationControl; },
+        onRemove: function() {}
+      }, 'top-right');
+
+      // Add terrain visualization
+      map.addSource('mapbox-dem', {
+        type: 'raster-dem',
+        url: 'mapbox://mapbox.mapbox-terrain-dem-v1',
+        tileSize: 512,
+        maxzoom: 14
+      });
+      map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.3 });
+
+      // Try to get location automatically
+      updateUserLocation();
+    });
+
+    // Mobile Adaptation
+    if (window.innerWidth < 768) {
+      document.getElementById('walelMap').style.height = '450px';
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <style>
+    #walelMap {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    #distanceInfo {
+      font-size: 1.1rem;
+    }
+    #distanceText strong {
+      color: #FF9E00;
+      font-weight: 600;
+    }
+    .mapboxgl-ctrl button {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FF9E00;
+      color: white;
+    }
+    .mapboxgl-popup-content {
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: #F8F9FA;
+    }
+    .mapboxgl-popup h5 {
+      color: #FF9E00;
+      margin-bottom: 0.5rem;
+    }
+    .mapboxgl-popup p {
+      margin-bottom: 0.3rem;
+      color: #495057;
+    }
+  </style>
+</section>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Load Header
+    fetch('includes/header/header.html')
+      .then((response) => response.text())
+      .then((data) => (document.getElementById('header').innerHTML = data))
+      .catch((error) => console.error('Error loading header:', error));
+
+    // Load Footer
+    fetch('includes/footer/footer.html')
+      .then((response) => response.text())
+      .then((data) => (document.getElementById('footer').innerHTML = data))
+      .catch((error) => console.error('Error loading footer:', error));
+  </script>
+  <!-- Custom JS for Tabs -->
+  <script>
+    // Tab Switching Functionality
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        // Remove active class from all tabs
+        document.querySelectorAll('.nav-link').forEach((link) => {
+          link.classList.remove('active');
+        });
+
+        // Add active class to the clicked tab
+        link.classList.add('active');
+
+        // Hide all tab content
+        document.querySelectorAll('.tab-content').forEach((content) => {
+          content.style.display = 'none';
+        });
+
+        // Show the selected tab content
+        const targetId = link.getAttribute('href').substring(1); // Get target ID
+        document.getElementById(targetId).style.display = 'block';
+      });
+    });
+
+    // Show the default tab on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.nav-link.active').click();
+    });
+  </script>
+  <!-- Custom JS -->
+  <script src="scripts/script.js"></script>
+</body>
+</html>

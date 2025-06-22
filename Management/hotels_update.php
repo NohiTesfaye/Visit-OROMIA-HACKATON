@@ -24,7 +24,7 @@ body{
 $servername = "localhost";
 $username="root";
 $password="";
-$dbname="projectmeteor";
+$dbname="projectmeteor1";
 $hotelID="";
 $hotelName="";
 $city="";
@@ -325,7 +325,7 @@ if(isset($_POST['update'])){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "projectmeteor";
+$dbname = "projectmeteor1";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

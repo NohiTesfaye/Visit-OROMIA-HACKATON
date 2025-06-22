@@ -84,7 +84,7 @@
 								</a>
 <br>
 <br>
-                                <a href="\travel\index.php"> <!-- change it to adminLogin.php when it is done -->
+                                <a href="\travel3\index.php"> <!-- change it to adminLogin.php when it is done -->
 									<input type="button" class="btn btn-dark pt-5" name="home" style="font-size:30px" value="Click here to go to user panel">
 								</a>
 

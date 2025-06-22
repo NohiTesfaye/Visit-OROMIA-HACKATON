@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Tourism Management</title>
+    <title>Home | VISIT OROMIA</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -20,57 +20,71 @@
 
 <body style="background-color: #D5E5D5;">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-globe"></i> VISIT OROMIA
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="booking.php" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Bookings
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="hotels.php">Hotels</a></li>
-                            <li><a class="dropdown-item" href="flights.php">Flights</a></li>
-                            <li><a class="dropdown-item" href="trains.php">Bus</a></li>
-                        </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-globe"></i> VISIT OROMIA
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.php">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="booking.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Bookings
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="hotels.php">Hotels</a></li>
+                        <li><a class="dropdown-item" href="flights.php">Flights</a></li>
+                        <li><a class="dropdown-item" href="trains.php">Bus</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOromia" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Explore Oromia
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownOromia">
+                        <li><a class="dropdown-item" href="Explore_Oromia/index.html">Natural Attractions</a></li>
+                        <li><a class="dropdown-item" href="Explore_Oromia/cultural_site.html">Cultural Sites</a></li>
+                        <li><a class="dropdown-item" href="upcomingevents.php">Upcoming Events</a></li>
+                        <li><a class="dropdown-item" href="Explore_Oromia/culural-food.html">Food & Culture</a></li>
+                        <li><a class="dropdown-item" href="chat.php">Chat with us!</a></li>
+                        <li><a class="dropdown-item" href="video.html">VIDEO</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.php">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactUs.php">Contact</a>
+                </li>
+                <?php if (isset($_SESSION["username"])) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOromia" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Explore Oromia
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownOromia">
-                            <li><a class="dropdown-item" href="Explore_Oromia/index.html">Natural Attractions</a></li>
-                            <li><a class="dropdown-item" href="Explore_Oromia/cultural_site.html">Cultural Sites</a></li>
-                            <li><a class="dropdown-item" href="oromia_adventure_tours.php">Adventure Tours</a></li>
-                            <li><a class="dropdown-item" href="Explore_Oromia/culural-food.html">Food & Culture</a></li>
-                            <li><a class="dropdown-item" href="chat.php">Chat with us!S</a></li>
-                            <li><a class="dropdown-item" href="video.html">VIDEO</a></li>
-                        </ul>
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactUs.php">Contact</a></li>
-                    <?php if (isset($_SESSION["username"])) : ?>
-                        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
-                    <?php else : ?>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                    <?php endif; ?>
-                </ul>
-            </div>
+                <?php endif; ?>
+                <li class="nav-item">
+                    <form class="d-flex ms-3" action="search.php" method="GET">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Search places" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Carousel Section -->
     <div class="col-xs-12 banner">
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
             <ol class="carousel-indicators">
                 <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
@@ -78,13 +92,22 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="visit oromia/Baatuu.jpg" alt="Image1">
+                    <img src="visit oromia\MOUNTAIN.jpg" alt="Image1">
                 </div>
                 <div class="carousel-item">
-                    <img src="visit oromia/Baatu.jpg" alt="Image2">
+                    <img src="visit oromia\FOREST.jpg" alt="Image2">
+                </div>
+                 <div class="carousel-item">
+                    <img src="visit oromia\langano2.jpg" alt="Image2">
+                </div>
+                 <div class="carousel-item">
+                    <img src="visit oromia\langano4.jpg" alt="Image2">
+                </div>
+                 <div class="carousel-item">
+                    <img src="visit oromia\finfinnee.jpg" alt="Image2">
                 </div>
                 <div class="carousel-item">
-                    <img src="visit oromia/wenchi.jfif" alt="Image3">
+                    <img src="visit oromia\bishooftuu.jpg" alt="Image3">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
