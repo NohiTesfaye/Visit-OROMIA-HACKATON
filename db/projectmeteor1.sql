@@ -11,15 +11,15 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE TABLE posts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    content TEXT,
-    image_path VARCHAR(255),
-    location VARCHAR(100),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES user(id)
-);
+-- CREATE TABLE posts (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT NOT NULL,
+--     content TEXT,
+--     image_path VARCHAR(255),
+--     location VARCHAR(100),
+--     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (user_id) REFERENCES user(id)
+-- );
 
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
